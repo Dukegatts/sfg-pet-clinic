@@ -43,6 +43,6 @@
 		</plugins>
 	</build>
 	<scm>
-		<developerConnection>scm:git:git@github.com:Dukegatts/sfg-pet-clinic.git</developerConnection>
+		<developerConnection>scm:git:https://github.com/spring-projects/spring-petclinic.git</developerConnection>
 	</scm>
 </project>

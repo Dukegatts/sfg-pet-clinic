@@ -1,5 +1,6 @@
 package fr.springframework.sfgpetclinic.model;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import lombok.Getter;
@@ -15,5 +16,5 @@ public class Owner extends Person
 
 	private String telephone;
 
-	private Set<Pet> pets;
+	private Set<Pet> pets = new HashSet<>();
 }

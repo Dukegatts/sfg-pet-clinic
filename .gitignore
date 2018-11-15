@@ -16,6 +16,11 @@
 *.iml
 *.ipr
 
+# Maven, Java
+*.class
+classes/
+target/
+
 ### NetBeans ###
 /nbproject/private/
 /build/

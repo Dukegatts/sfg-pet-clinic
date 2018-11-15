@@ -32,7 +32,7 @@ public class VetServiceMap
 	@Override
 	public Vet save(final Vet object)
 	{
-		return super.save(object.getId(), object);
+		return super.save(object);
 	}
 
 	@Override

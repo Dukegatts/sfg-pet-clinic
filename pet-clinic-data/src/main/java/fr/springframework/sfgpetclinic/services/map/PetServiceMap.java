@@ -32,7 +32,7 @@ public class PetServiceMap
 	@Override
 	public Pet save(final Pet object)
 	{
-		return super.save(object.getId(), object);
+		return super.save(object);
 	}
 
 	@Override

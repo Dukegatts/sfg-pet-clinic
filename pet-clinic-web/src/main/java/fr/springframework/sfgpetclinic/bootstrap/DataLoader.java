@@ -10,10 +10,12 @@ import fr.springframework.sfgpetclinic.model.Pet;
 import fr.springframework.sfgpetclinic.model.PetType;
 import fr.springframework.sfgpetclinic.model.Speciality;
 import fr.springframework.sfgpetclinic.model.Vet;
+import fr.springframework.sfgpetclinic.model.Visit;
 import fr.springframework.sfgpetclinic.services.OwnerService;
 import fr.springframework.sfgpetclinic.services.PetTypeService;
 import fr.springframework.sfgpetclinic.services.SpecialityService;
 import fr.springframework.sfgpetclinic.services.VetService;
+import fr.springframework.sfgpetclinic.services.VisitService;
 
 @Component
 public class DataLoader implements CommandLineRunner
@@ -26,15 +28,18 @@ public class DataLoader implements CommandLineRunner
 
 	private final SpecialityService specialityService;
 
+	private final VisitService visitService;
+
 	public DataLoader(final OwnerService ownerService,
 					  final VetService vetService,
 					  final PetTypeService petTypeService,
-					  final SpecialityService specialityService)
+					  final SpecialityService specialityService, final VisitService visitService)
 	{
 		this.ownerService = ownerService;
 		this.vetService = vetService;
 		this.petTypeService = petTypeService;
 		this.specialityService = specialityService;
+		this.visitService = visitService;
 	}
 
 	@Override
@@ -104,6 +109,15 @@ public class DataLoader implements CommandLineRunner
 		ownerService.save(owner2);
 
 		System.out.println("Loaded Owners...");
+
+		Visit catVisit = new Visit();
+		catVisit.setPet(fionasCat);
+		catVisit.setDate(LocalDate.now());
+		catVisit.setDescription("Sneezy Kitty");
+
+		visitService.save(catVisit);
+
+		System.out.println("Loaded Visits...");
 
 		Vet vet1 = new Vet();
 		vet1.setFirstName("Sam");
